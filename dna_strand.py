@@ -1,29 +1,27 @@
-# Artistic DNA Helix — Compact & Styled
+input_user = input("Give me a strand of DNA (ATCG) to turn into its complementary strand:\n")
+value = input_user.upper()
+def DNA_Transformation(value_to_turn):
+    new_value = ""
+    for char in value_to_turn:
+        if char == "A":
+            char = "T"
+            new_value += char
+        elif char == "T":
+            char = "A"
+            new_value += char
 
-pairs = ["A-T", "T-A", "C-G", "G-C", "T-A", "A-T", "G-C", "C-G"]
-twist = [
-    "        {0}       ",
-    "       / \\      ",
-    "      /   \\     ",
-    "     /     \\    ",
-    "====/=======\\===",
-    "    \\       /   ",
-    "     \\     /    ",
-    "      \\   /     ",
-    "       \\ /      ",
-    "        {1}       "
-]
+        elif char == "C":
+            char = "G"
+            new_value += char
 
-def render_helix(pairs, twist):
-    for i in range(len(twist)):
-        line = ""
-        for p in pairs:
-            left, right = p.split("-")
-            segment = twist[i].format(left, right)
-            line += segment + "  "
-        print(line)
+        elif char == "G":
+            char = "C"
+            new_value += char
+        else:
+            continue
 
-render_helix(pairs, twist)
+    return(new_value)
+print(DNA_Transformation(value))
 
 
 
